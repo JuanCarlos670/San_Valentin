@@ -1,0 +1,206 @@
+/* Fondo y estilo general */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: url(https://s1.1zoom.me/b5050/956/Netherlands_Fields_Sunrises_and_sunsets_Tulips_551011_1920x1080.jpg) no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden; /* Evita que el contenido se desborde */
+    transition: background 0.5s ease-in-out;
+}
+
+/* Ocultar el primer GIF cuando el fondo cambia */
+body.nuevo-fondo #gifContainer {
+    display: none;
+}
+
+/* Ocultar el segundo GIF cuando el primer fondo esté activo */
+body.no-nuevo-fondo #gifContainer2 {
+    display: none;
+}
+
+/* Contenedor principal del título y GIF */
+.container {
+    position: relative;
+    text-align: center;
+    padding-top: 100px; /* Espacio superior para separar el GIF del título */
+}
+
+/* Contenedor para el primer GIF */
+#gifContainer {
+    position: absolute;
+    top: -150px; /* Lo movemos hacia arriba para que esté encima del título */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* Asegúrate de que el GIF esté encima del título */
+}
+
+/* Contenedor para el segundo GIF (dentro de la zona superior) */
+#gifContainer2 {
+    position: absolute;
+    top: 15%; /* Ajustamos la posición para que quede arriba del mensaje */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: none; /* Inicialmente está oculto */
+}
+
+/* Estilo para los GIFs */
+#gif, #gif2 {
+    width: 250px;  /* Tamaño del GIF */
+    height: auto;
+}
+
+/* Título y subtítulo centrados */
+#title, #subtitle {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    width: 0;
+    text-align: center;
+}
+
+/* Estilo del título */
+#title {
+    font-size: 5em;
+    color: #fff;
+    animation: typing 3s steps(30) 1s forwards, glow 3s infinite alternate ease-in-out;
+}
+
+/* Estilo del subtítulo */
+#subtitle {
+    font-size: 3em;
+    color: #fff;
+    animation: typing 3s steps(30) 15s forwards, glow 3s infinite alternate ease-in-out 23s;
+}
+
+/* Animación de escritura */
+@keyframes typing {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+/* Animación de brillo */
+@keyframes glow {
+    0% { text-shadow: 0 0 0px #9C27B0; }
+    100% { text-shadow: 0 0 20px #9C27B0, 0 0 40px #F06292, 0 0 60px #FFEB3B; }
+}
+
+/* Contenedor de botones */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    opacity: 0;
+    animation: showButtons 1s ease-in-out 15s forwards; /* Aparecen después de 15s (cuando el subtítulo termina) */
+    position: relative;
+    z-index: 100; /* Los botones estarán en una capa superior */
+}
+
+/* Animación para los botones */
+@keyframes showButtons {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Estilo de los botones */
+button {
+    font-size: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+/* Botón Sí */
+#si {
+    background-color: #28a745;
+}
+
+#si:hover {
+    background-color: #218838;
+}
+
+/* Botón No */
+#no {
+    background-color: #dc3545;
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+/* Estilo para el botón cuando el mouse pasa sobre él */
+#no:hover {
+    background-color: #dc3545;
+    transform: scale(1.2);
+}
+
+/* Estilo para el nuevo contenido */
+#newContent {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    color: yellow; /* Mensaje en color amarillo */
+    font-family: 'Dancing Script', cursive; /* Estilo de letra diferente */
+    font-size: 3rem;
+    text-align: center;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 30; /* El nuevo contenido estará sobre los botones */
+}
+
+/* Mostrar nuevo contenido */
+#newContent.visible {
+    display: block;
+    opacity: 1;
+}
+
+/* Fondo al cambiar */
+.nuevo-fondo {
+    background-image: url(https://img.freepik.com/vector-gratis/fondo-cielo-nocturno-estrellas-brillantes_1048-19664.jpg);
+}
+
+/* Movimiento del botón "No" para que escape */
+#no {
+    position: absolute;
+    transition: top 0.3s, left 0.3s;
+}
+
+/* Estilo para que el botón "No" se escape */
+#no:hover {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Estilo del botón de reproducción */
+#playMusicButton {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+#playMusicButton:hover {
+    background-color: #45a049;
+}

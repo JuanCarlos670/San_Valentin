@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi San Valentin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+        <!-- Reproductor de música con control manual -->
+        <audio id="audio" loop>
+            <source src="/music/cancion.mp3" type="audio/mp3">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+
+    <div class="container">
+        <!-- Contenedor para el GIF sobre el título -->
+        <div id="gifContainer">
+            <img src="https://media.tenor.com/yvUCU981VYoAAAAj/mochi-cat-goma.gif" alt="GIF" id="gif">
+        </div>
+        <h1 id="title">Mel, Te Quiero Preguntar Algo</h1>
+        <h2 id="subtitle">¿Me Harías EL Honor De Ser Mi San Valentin?</h2>
+    </div>
+
+    <!-- Contenedor para centrar los botones -->
+    <div class="buttons-container">
+        <button id="si">Sí</button>
+        <button id="no">No</button>
+    </div>
+        <!-- Segundo GIF, oculto al inicio -->
+        <div id="gifContainer2">
+            <img src="https://media.tenor.com/lnI645QIjMAAAAAj/gatitos-enamorados-besos-de-amor.gif" alt="GIF" id="gif2">
+        </div>
+
+    <!-- Contenido que aparece al hacer clic en "Sí" -->
+    <div id="newContent" style="display: none;">
+        <p id="message">
+                Mi amor, aunque estemos lejos, te siento cerca en cada latido. ❤️ <br>
+                La distancia no puede apagar lo que siento por ti. <br>
+                Cada día que pasa me siento más afortunado de tenerte en mi vida. <br>
+                Aunque no pueda verte todo el tiempo, eres mi paz, mi felicidad. <br>
+                Cada día espero con ansias el momento en que podamos estar juntos. <br>
+                ¡Gracias por ser mi San Valentín, aún desde lejos. Te Amo Mi Amor. ❤️
+            </p>
+        </div>
+
+    </div>
+<!-- Tu contenido HTML -->
+<script src="script.js"></script>
+</body>
+</html>
